@@ -13,7 +13,8 @@ class _CommentScreenState extends State<CommentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comments Example'),
+        backgroundColor: Colors.blueGrey,
+        title: Center(child: Text('Comment Here')),
       ),
       body: Column(
         children: [
@@ -21,8 +22,15 @@ class _CommentScreenState extends State<CommentScreen> {
             child: ListView.builder(
               itemCount: comments.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(comments[index]),
+                // return ListTile(
+                //   title: Text(comments[index]),
+                // );
+                return Container(
+                  height: 50,
+                  margin: EdgeInsets.all(2),
+                  color: Color.fromARGB(255, 222, 220, 220),
+                  padding: EdgeInsets.all(5),
+                  child: Center(child: Text(comments[index])),
                 );
               },
             ),
@@ -41,7 +49,10 @@ class _CommentScreenState extends State<CommentScreen> {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: Icon(
+                    Icons.send,
+                    color: Colors.blueGrey,
+                  ),
                   onPressed: () {
                     String newComment = commentController.text;
                     if (newComment.isNotEmpty) {
